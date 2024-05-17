@@ -7,8 +7,6 @@ import inventory.repository.InventoryRepository;
 import inventory.repository.PartRepository;
 import org.junit.jupiter.api.*;
 
-import static org.junit.Assert.assertEquals;
-
 class InventoryServiceTest {
     private final Part part = new Part(11,"part11", 11, 7, 2, 33);
 
