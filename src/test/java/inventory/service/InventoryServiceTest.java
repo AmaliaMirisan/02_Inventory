@@ -81,7 +81,7 @@ class InventoryServiceTest {
     }
 
     @Test
-    @Tag("BoundaryValueAnalysis")
+    //@Tag("BoundaryValueAnalysis")
     void addPart_BVA_invalid_name() {
         name = "";
         price = 25;
@@ -101,7 +101,7 @@ class InventoryServiceTest {
     //-------------------------------------------------------------------------------------------------------
 
     @Test
-    @DisplayName("Valid Price ECP Test")
+    //@DisplayName("Valid Price ECP Test")
     void addPart_ECP_valid_price() {
         name = "Part3";
         price = 60;
@@ -121,7 +121,7 @@ class InventoryServiceTest {
         partsSize++;
     }
     @Test
-    @Timeout(5)
+    //@Timeout(5)
     void addPart_ECP_invalid_price() {
         name = "Part3";
         price = -60;
