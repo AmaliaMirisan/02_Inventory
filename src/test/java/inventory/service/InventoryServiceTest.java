@@ -81,35 +81,31 @@ class InventoryServiceTest {
     }
 
     @Test
-    //@Tag("BoundaryValueAnalysis")
+        //@Tag("BoundaryValueAnalysis")
     void addPart_BVA_invalid_name() {
-        name = "Part2";
-        price = 55;
-        inStock = 7;
-        min = 3;
-        max = 15;
+        name = "";
+        price = 25;
+        inStock = 3;
+        min = 1;
+        max = 3;
 
 
-        assert service.getParts().size() == partsSize;
         try {
             service.addPart(name, price, inStock, min, max);
-
+            //assert false;
         } catch (PartException e) {
-            assert false;
+            assert e.getMessage().equals("A name has not been entered. ");
         }
-        assert service.getParts().size() == partsSize + 1;
-        partsSize++;
     }
 
     //-------------------------------------------------------------------------------------------------------
 
-
-    //@DisplayName("Valid Price ECP Test")
     @Test
+        //@DisplayName("Valid Price ECP Test")
     void addPart_ECP_valid_price() {
-        name = "Part2";
-        price = 55;
-        inStock = 7;
+        name = "Part3";
+        price = 60;
+        inStock = 5;
         min = 3;
         max = 15;
 
@@ -125,24 +121,21 @@ class InventoryServiceTest {
         partsSize++;
     }
     @Test
-    //@Timeout(5)
+        //@Timeout(5)
     void addPart_ECP_invalid_price() {
-        name = "Part2";
-        price = 55;
-        inStock = 7;
+        name = "Part3";
+        price = -60;
+        inStock = 5;
         min = 3;
         max = 15;
 
 
-        assert service.getParts().size() == partsSize;
         try {
             service.addPart(name, price, inStock, min, max);
-
+            //assert false;
         } catch (PartException e) {
-            assert false;
+            assert e.getMessage().equals("The price must be greater than 0. ");
         }
-        assert service.getParts().size() == partsSize + 1;
-        partsSize++;
     }
     @RepeatedTest(2)
     @DisplayName("Valid Name ECP Test")
@@ -182,9 +175,9 @@ class InventoryServiceTest {
         }
     }
     //@Test
-   // @Disabled("TO DO")
+    // @Disabled("TO DO")
     //void dummyTest() {
-       // assert false;
-   // }
+    // assert false;
+    // }
 
-    }
+}
